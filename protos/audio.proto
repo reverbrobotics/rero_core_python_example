@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package rero;
+
+service AudioStreamer {
+  // Sends a greeting
+  rpc GetStream (StreamRequest) returns (stream Audio) {}
+}
+
+// The request message containing the audio stream properties.
+message StreamRequest {
+  uint32 sample_rate = 1;
+  uint32 num_channels = 2;
+  string format = 3;
+  uint32 frames_per_buffer = 4;
+  uint32 bytes_per_sample = 5;
+}
+
+// The response message containing the audio.
+message Audio {
+  uint32 num_samples = 1;
+  uint32 num_channels = 2;
+  uint32 bytes_per_sample = 3;
+  uint32 frames_per_buffer = 4;
+  uint32 sample_rate = 5;
+  bytes raw_data = 6;
+}

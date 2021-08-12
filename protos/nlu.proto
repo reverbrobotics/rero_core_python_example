@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package rero;
+
+service NLU {
+  rpc GetSpeechIntent (NLURequest) returns (Intent) {}
+}
+
+message NLURequest {
+  string request=1;
+}
+
+// The response message containing the audio.
+message Intent {
+    string inputText=1;
+    string intentName=2;
+    float probability=3;
+    repeated Slot slots=4;
+}
+
+message Slot {
+  string rawValue=1;
+  string entity=2;
+  string slotName=3;
+  uint32 rangeStart=4;
+  uint32 rangeEnd=5;
+}

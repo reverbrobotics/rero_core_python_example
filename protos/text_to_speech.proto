@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package rero;
+
+service TextToSpeech {
+  rpc TTS (TTSRequest) returns (TTSResponse) {}
+}
+
+message TTSRequest {
+  string text=1;
+}
+
+message TTSResponse {
+  bool status=1;
+}

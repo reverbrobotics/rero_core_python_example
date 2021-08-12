@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package rero;
+
+import "audio.proto";
+
+service SpeechRecognition {
+
+  rpc RecognizeSpeech (stream Audio) returns (SpeechRecognitionResult) {}
+}
+
+// The response message containing the audio.
+message SpeechRecognitionResult {
+    string result=1;
+}
