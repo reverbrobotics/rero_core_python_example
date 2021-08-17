@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import nlu_pb2 as nlu__pb2
+from . import nlu_pb2 as nlu__pb2
 
 
 class NLUStub(object):

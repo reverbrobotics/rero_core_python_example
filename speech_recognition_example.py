@@ -35,7 +35,6 @@ def run():
 
         #get speech recognition result synchronously (call sr_stub.RecognizeSpeech.future for asynchronous object)
         audio_stream = audio_stub.GetStream(request)
-
         sr_result = sr_stub.RecognizeSpeech(audio_stream)
 
         #parse json result
