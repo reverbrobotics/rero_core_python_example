@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import audio_pb2 as audio__pb2
-import speech_recognition_pb2 as speech__recognition__pb2
+from . import audio_pb2 as audio__pb2
+from . import speech_recognition_pb2 as speech__recognition__pb2
 
 
 class SpeechRecognitionStub(object):
