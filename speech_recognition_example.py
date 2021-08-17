@@ -7,7 +7,6 @@
 # =========================================================================== #
 
 import json
-import logging
 import grpc
 import rero_grpc.audio_pb2_grpc as audio_grpc
 import rero_grpc.audio_pb2 as audio
@@ -35,7 +34,9 @@ def run():
         request.bytes_per_sample = 2
 
         #get speech recognition result synchronously (call sr_stub.RecognizeSpeech.future for asynchronous object)
-        sr_result = sr_stub.RecognizeSpeech(audio_stub.GetStream(request))
+        audio_stream = audio_stub.GetStream(request)
+
+        sr_result = sr_stub.RecognizeSpeech(audio_stream)
 
         #parse json result
         parsed_result = json.loads(sr_result.result)
@@ -45,9 +46,5 @@ def run():
 
 # check file is being run directly
 if __name__ == '__main__':
-
-    #start logging
-    logging.basicConfig()
-
     #run speech recognition
     run()
