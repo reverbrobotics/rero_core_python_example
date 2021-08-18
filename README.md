@@ -22,13 +22,13 @@ The following example files are currently in the repo.
 An example that plays audio frames over the system speaker using PyAudio. raw_audio_playback_example.py.
 
 ### Speech Recognition
-An example for using the speech recognition. speech_recognition_example.py.
+An example demonstrating usage of speech recognition. speech_recognition_example.py.
 
 ### NLU
-An example of using speech recognition and NLU together. nlu_example.py.
+An example demonstrating usage of speech recognition and NLU together. nlu_example.py.
 
 ### Text to Speech
-An example of using Text to Speech. text_to_speech_example.py. 
+An example demonstrating Text to Speech. text_to_speech_example.py. 
 
 ## Licence
 This code is licenced under the [MIT License](https://github.com/reverbrobotics/rero_core_python_example/blob/master/LICENSE). 
