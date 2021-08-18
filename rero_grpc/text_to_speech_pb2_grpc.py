@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import text_to_speech_pb2 as text__to__speech__pb2
+from . import text_to_speech_pb2 as text__to__speech__pb2
 
 
 class TextToSpeechStub(object):
