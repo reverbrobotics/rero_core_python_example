@@ -49,6 +49,9 @@ def run():
         print("Speech Recognition Result: ", parsed_result['text'])
         print("")
 
+        if parsed_result['text'] == '':
+            return
+
         #create nlu request object
         nlu_request = nlu.NLURequest()
         nlu_request.request = parsed_result['text']
