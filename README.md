@@ -6,6 +6,10 @@ The code in this repo requires gRPC which can be installed using pip as follows:
 ```
 pip install grpcio
 ```
+To install grpcio on the ReRo raspberry pi image, run the command:
+```
+sudo pip3 install grpcio==1.37.1
+```
 
 The audio playback example also requires PyAudio, which can be installed using pip:
 ```
