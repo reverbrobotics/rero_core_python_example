@@ -7,9 +7,19 @@ import "audio.proto";
 service SpeechRecognition {
 
   rpc RecognizeSpeech (stream Audio) returns (SpeechRecognitionResult) {}
+  rpc SetVocab(Vocab) returns (VocabResult) {}
+
 }
 
 // The response message containing the audio.
 message SpeechRecognitionResult {
     string result=1;
+}
+
+message VocabResult {
+  string result=1;
+}
+
+message Vocab {
+  string vocab=1;
 }

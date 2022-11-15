@@ -20,12 +20,23 @@ class SpeechRecognitionStub(object):
                 request_serializer=audio__pb2.Audio.SerializeToString,
                 response_deserializer=speech__recognition__pb2.SpeechRecognitionResult.FromString,
                 )
+        self.SetVocab = channel.unary_unary(
+                '/rero.SpeechRecognition/SetVocab',
+                request_serializer=speech__recognition__pb2.Vocab.SerializeToString,
+                response_deserializer=speech__recognition__pb2.VocabResult.FromString,
+                )
 
 
 class SpeechRecognitionServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def RecognizeSpeech(self, request_iterator, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetVocab(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -38,6 +49,11 @@ def add_SpeechRecognitionServicer_to_server(servicer, server):
                     servicer.RecognizeSpeech,
                     request_deserializer=audio__pb2.Audio.FromString,
                     response_serializer=speech__recognition__pb2.SpeechRecognitionResult.SerializeToString,
+            ),
+            'SetVocab': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetVocab,
+                    request_deserializer=speech__recognition__pb2.Vocab.FromString,
+                    response_serializer=speech__recognition__pb2.VocabResult.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -63,5 +79,22 @@ class SpeechRecognition(object):
         return grpc.experimental.stream_unary(request_iterator, target, '/rero.SpeechRecognition/RecognizeSpeech',
             audio__pb2.Audio.SerializeToString,
             speech__recognition__pb2.SpeechRecognitionResult.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetVocab(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/rero.SpeechRecognition/SetVocab',
+            speech__recognition__pb2.Vocab.SerializeToString,
+            speech__recognition__pb2.VocabResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

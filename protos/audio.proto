@@ -5,6 +5,7 @@ package rero;
 service AudioStreamer {
   // Sends a greeting
   rpc GetStream (StreamRequest) returns (stream Audio) {}
+  rpc PlayAudio(stream Audio) returns (PlayResult) {}
 }
 
 // The request message containing the audio stream properties.
@@ -14,6 +15,11 @@ message StreamRequest {
   string format = 3;
   uint32 frames_per_buffer = 4;
   uint32 bytes_per_sample = 5;
+}
+
+message PlayResult {
+  uint32 pa_error_code = 1;
+  string pa_error_msg = 2;
 }
 
 // The response message containing the audio.
