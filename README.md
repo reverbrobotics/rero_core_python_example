@@ -18,7 +18,7 @@ pip install PyAudio
 
 ## Usage
 
-A ReroCore server must be running in order to use these example python clients.
+A ReroCore server must be running in order to use these example python clients. This server can be a cloud server such as [testserver.reverbrobotics.ca](testserver.reverbrobotics.ca), or server running locally on a Reverb Robotics single board computer.
 
 The following example files are currently in the repo.
 
