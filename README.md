@@ -18,21 +18,32 @@ pip install PyAudio
 
 ## Usage
 
-A ReroCore server must be running in order to use these example python clients. Binaries for the server can be downloaded [here](https://github.com/reverbrobotics/rero_core_dist).
+A ReroCore server must be running in order to use these example python clients.
 
 The following example files are currently in the repo.
 
-### Raw Audio Playback
-An example that plays audio frames over the system speaker using PyAudio. raw_audio_playback_example.py.
+### Server examples
 
-### Speech Recognition
-An example demonstrating usage of speech recognition. speech_recognition_example.py.
+These examples demonstrate streaming local audio to a remote server and getting back results.
 
-### NLU
-An example demonstrating usage of speech recognition and NLU together. nlu_example.py.
+#### Server NLU
+An example demonstrating usage of NLU on a remote rero server. server_nlu_example.py.
 
-### Text to Speech
-An example demonstrating Text to Speech. text_to_speech_example.py. 
+#### Server Speech Recognition
+An example demonstrating usage of speech recognition on a remote server using a local microphone. server_speech_recognition_example.py.
+
+### Board examples
+
+These examples demonstrate using the microphone and speakers on the Rero Board itself. 
+
+#### Board Mic Audio Playback
+An example that plays audio frames from the board over the local system speaker using PyAudio. board_mic_audio_playback_example.py.
+
+#### Board Speech Recognition
+An example demonstrating usage of speech recognition and onboard microphones. board_speech_recognition_example.py.
+
+#### Board Text to Speech
+An example demonstrating Text to Speech on the rero board. board_text_to_speech_example.py. 
 
 ## Licence
 This code is licenced under the [MIT License](https://github.com/reverbrobotics/rero_core_python_example/blob/master/LICENSE). 
