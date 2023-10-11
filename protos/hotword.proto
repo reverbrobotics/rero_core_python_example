@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package rero;
+
+import "audio.proto";
+
+service HotwordDetection {
+  rpc StartHotwordStream (stream Audio) returns (stream HotwordResult) {}
+  rpc RecognizeHotword (stream Audio) returns(HotwordResult) {}
+  rpc GetEmbedding (stream Audio) returns (RawEmbedding) {}
+  rpc AddEmbeddingToHotword(HotwordEmbedding) returns(Result) {}
+  rpc PersistHotword(HotwordFileName) returns(Result) {}
+}
+
+
+// The response message containing the audio.
+message HotwordResult {
+  string hotword=1;
+  float confidence=2;
+}
+
+message RawEmbedding {
+  repeated float embedding=1;
+}
+
+message HotwordEmbedding {
+  string hotword=1;
+  RawEmbedding embedding=2;
+}
+
+message Result {
+  string msg=1;
+}
+
+message HotwordFileName {
+  string hotword=1;
+  string filename=2;
+}
+

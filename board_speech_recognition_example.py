@@ -13,6 +13,7 @@ import rero_grpc.audio_pb2 as audio
 import rero_grpc.speech_recognition_pb2_grpc as sr_grpc
 import rero_grpc.speech_recognition_pb2 as speech
 
+
 # main method
 def run():
 
@@ -38,18 +39,6 @@ def run():
         audio_stream = audio_stub.GetStream(request)
 
         vocab = speech.Vocab()
-
-        vocab.vocab = "one two three"
-
-        sr_stub.SetVocab(vocab)
-
-        sr_result = sr_stub.RecognizeSpeech(audio_stream)
-
-        #parse json result
-        parsed_result = json.loads(sr_result.result)
-
-        #print result
-        print("Speech Recognition Result: ", parsed_result['text'])
 
         vocab.vocab = ""
         sr_stub.SetVocab(vocab)
