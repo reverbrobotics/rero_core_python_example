@@ -16,7 +16,7 @@ from util.microphone import MicrophoneStream
 def run():
 
     #create channel
-    with grpc.insecure_channel('testserver.reverbrobotics.ca:50052') as channel:
+    with grpc.insecure_channel('home.scottstone.ca:50052') as channel:
 
         #audio settings
         sample_rate = 16000

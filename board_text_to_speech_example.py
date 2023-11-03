@@ -14,7 +14,7 @@ import rero_grpc.text_to_speech_pb2 as tts
 def run():
 
     #create channel
-    with grpc.insecure_channel('localhost:50052') as channel:
+    with grpc.insecure_channel('home.scottstone.ca:50052') as channel:
         #tts stub
         tts_stub = tts_grpc.TextToSpeechStub(channel)
 

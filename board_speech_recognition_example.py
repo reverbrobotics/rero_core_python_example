@@ -18,7 +18,7 @@ import rero_grpc.speech_recognition_pb2 as speech
 def run():
 
     #create channel
-    with grpc.insecure_channel('localhost:50052') as channel:
+    with grpc.insecure_channel('testserver.reverbrobotics.ca:50052') as channel:
         #audio stub
         audio_stub = audio_grpc.AudioStreamerStub(channel)
 
